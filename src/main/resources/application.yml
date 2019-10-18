@@ -17,3 +17,6 @@ spring:
     user:
       name: test@test.com
       password: $2a$10$UvRO62xRebwdlwk7KbeCxuPw4IKQb5hDuq.zoPDlmZBPi.hpx92ES #tester
+  h2:
+    console:
+      enabled: true
