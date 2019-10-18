@@ -1,4 +1,4 @@
-package com.patternmatch.oauth2blog.resources;
+package com.patternmatch.oauth2blog.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import static com.patternmatch.oauth2blog.TestAppConstants.*;
 import static org.hamcrest.core.Is.is;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -23,20 +24,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class HelloMvcTest {
-
-    private static final String TEST_USER_NAME = "test@test.com";
-    private static final String TEST_USER_PASSWORD = "tester";
-    private static final String USER_NAME_PARAM = "username";
-    private static final String USER_PASSWORD_PARAM = "password";
-    private static final String GRANT_TYPE_PARAM = "grant_type";
-    private static final String TEST_USER_GRANT_TYPE = "password";
-    private static final String OAUTH_TOKEN_URL = "/oauth/token";
-    private static final String HTTP_BASIC_USER_NAME = "my-client";
-    private static final String HTTP_BASIC_USER_PASSWORD = "my-secret";
-    private static final String CONTENT_TYPE_JSON = "application/json;charset=UTF-8";
-    private static final String ACCESS_TOKEN = "access_token";
-    private static final String AUTHORIZATION_HEADER = "Authorization";
-    private static final String BEARER = "Bearer ";
 
     @Autowired
     private MockMvc mockMvc;

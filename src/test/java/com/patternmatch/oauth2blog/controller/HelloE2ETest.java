@@ -1,4 +1,4 @@
-package com.patternmatch.oauth2blog.resources;
+package com.patternmatch.oauth2blog.controller;
 
 import static org.junit.Assert.assertEquals;
 
