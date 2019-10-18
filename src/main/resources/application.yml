@@ -17,6 +17,26 @@ spring:
     user:
       name: test@test.com
       password: $2a$10$UvRO62xRebwdlwk7KbeCxuPw4IKQb5hDuq.zoPDlmZBPi.hpx92ES #tester
-  h2:
-    console:
-      enabled: true
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/oauth2_demo
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 3000
+      connection-test-query: SELECT 1
+      pool-name: security_demo
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  #https://stackoverflow.com/questions/4588755/disabling-contextual-lob-creation-as-createclob-method-threw-error
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    generate-ddl: true
+    show-sql: true

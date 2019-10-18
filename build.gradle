@@ -38,7 +38,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
     compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    runtimeOnly('com.h2database:h2')
+    runtimeOnly('com.zaxxer:HikariCP')
+    runtimeOnly('org.postgresql:postgresql:42.2.2')
     runtimeOnly('org.liquibase:liquibase-core')
 }
 
