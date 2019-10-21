@@ -30,16 +30,16 @@ public class HelloMvcTest {
 
     @Test
     public void shouldAllowUserWithNoAuthorities() throws Exception {
-        mockMvc.perform(get("/api/hello?name=Seb")
+        mockMvc.perform(get("/api/hello")
                 .header(AUTHORIZATION_HEADER, obtainAccessToken())
                 .accept(MediaType.ALL))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.greetings", is("Welcome Seb!")));
+                .andExpect(jsonPath("$.greetings", is(String.format("Welcome %s!", TEST_USER_NAME))));
     }
 
     @Test
     public void shouldRejectIfNoAuthentication() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/hello?name=Seb")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/hello")
                 .accept(MediaType.ALL))
                 .andExpect(status().isUnauthorized());
     }
