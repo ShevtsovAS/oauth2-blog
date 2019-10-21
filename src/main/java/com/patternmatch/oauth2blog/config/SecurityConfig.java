@@ -1,5 +1,6 @@
 package com.patternmatch.oauth2blog.config;
 
+import com.patternmatch.oauth2blog.service.DefaultAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,15 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final SecurityProperties securityProperties;
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        SecurityProperties.UserProperties user = securityProperties.getUser();
-        auth
-                .inMemoryAuthentication()
-                .withUser(user.getName())
-                .password(user.getPassword())
-                .authorities(user.getAuthorities())
-                .and()
-                .passwordEncoder(passwordEncoder());
+    protected void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(new DefaultAuthenticationProvider(passwordEncoder(), securityProperties));
     }
 
     @Bean

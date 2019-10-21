@@ -16,7 +16,7 @@ public class SecurityProperties {
     UserProperties user = new UserProperties();
 
     @Data
-    static class OAuth2Properties {
+    public static class OAuth2Properties {
         private OAuth2Client client = new OAuth2Client();
 
         @Data
@@ -31,7 +31,7 @@ public class SecurityProperties {
     }
 
     @Data
-    static class UserProperties {
+    public static class UserProperties {
         private String name;
         private String password;
         private List<GrantedAuthority> authorities = new ArrayList<>();
